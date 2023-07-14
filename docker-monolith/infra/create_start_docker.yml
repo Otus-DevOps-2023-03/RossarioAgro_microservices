@@ -1,0 +1,21 @@
+---
+  hosts: all
+  become: true
+  vars:
+    container_count: 1
+    default_container_name: Reddit-App
+    default_container_image: rossarioagro/otus-reddit:1.0
+  
+  tasks:
+
+    - name: Pull Reddit app docker image
+      docker_image:
+        name: "{{ default_container_image }}"
+        source: pull
+
+    - name: Create containers
+      docker_container:
+        name: "{{ default_container_name }}{{ item }}"
+        image: "{{ default_container_image }}"
+        state: present
+      with_sequence: count={{ container_count }}

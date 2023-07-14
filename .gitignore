@@ -1,1 +1,25 @@
+variables.json
+key.json
+svc_acct_key.json
+s3_credentials
+
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+*.tfvars
+.terraform/
+.terraformrc
+providers.tf
 .vscode
+*.retry
+jdauphant.nginx
+vault.key
+
+# Vagrant & molecule
+.vagrant/
+*.log
+*.pyc
+.molecule
+.cache
+.pytest_cache
+

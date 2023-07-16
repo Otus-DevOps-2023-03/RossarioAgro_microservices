@@ -43,14 +43,14 @@ variable "ssh_user" {
   description = "User name for SSH connection"
   default     = "ubuntu"
 }
-variable "bucket_name" {
-  description = "s3 bucket name"
-}
+# variable "bucket_name" {
+#   description = "s3 bucket name"
+# }
 
-variable "access_key" {
-  description = "access key for s3 bucket"
-}
+# variable "access_key" {
+#   description = "access key for s3 bucket"
+# }
 
-variable "secret_key" {
-  description = "secret key for s3 bucket"
-}
+# variable "secret_key" {
+#   description = "secret key for s3 bucket"
+# }

@@ -5,7 +5,7 @@ provider "yandex" {
   zone                     = var.zone
 }
 
-resource "yandex_compute_instance" "app" {
+resource "yandex_compute_instance" "reddit_docker" {
   count = var.inst_count
   name  = "reddit-app-${count.index + 1}"
   zone  = var.zone
@@ -39,7 +39,7 @@ resource "yandex_compute_instance" "app" {
 resource "local_file" "hosts_inventory" {
   content = templatefile("${path.module}/ansible_inventory.tpl",
     {
-      reddit_servers = yandex_compute_instance.reddit[*].network_interface.0.nat_ip_address
+      reddit_servers = yandex_compute_instance.reddit_docker[*].network_interface.0.nat_ip_address
     }
   )
   filename = "./inventory"

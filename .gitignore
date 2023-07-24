@@ -2,6 +2,7 @@ variables.json
 key.json
 svc_acct_key.json
 s3_credentials
+.env
 
 *.tfstate
 *.tfstate.*.backup
@@ -22,4 +23,3 @@ vault.key
 .molecule
 .cache
 .pytest_cache
-

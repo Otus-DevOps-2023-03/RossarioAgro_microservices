@@ -1,0 +1,51 @@
+version: '3.5'
+services:
+  post_db:
+    image: mongo:${MONGO_TAG}
+    volumes:
+      - post_db:/data/db
+    networks:
+      back_net:
+        aliases:
+          - "post_db"
+          - "comment_db"
+
+  ui:
+    build: ./ui
+    image: ${USERNAME_HUB}/ui:${UI_TAG}
+    ports:
+      - ${UI_PORT_IN}:${UI_PORT_OUT}/tcp
+    networks:
+      - front_net
+  post:
+    build: ./post-py
+    image: ${USERNAME_HUB}/post:${POST_TAG}
+    networks:
+      front_net:
+        aliases:
+          - "post"
+  comment:
+    build: ./comment
+    image: ${USERNAME_HUB}/comment:${COMMENT_TAG}
+    networks:
+      back_net:
+        aliases:
+          - "comment"
+      front_net:
+        aliases:
+          - "comment"
+
+volumes:
+  post_db:
+
+networks:
+  front_net:
+    name: front_net
+    ipam:
+      config:
+        - subnet: 10.0.1.0/24
+  back_net:
+    name: back_net
+    ipam:
+      config:
+        - subnet: 10.0.2.0/24

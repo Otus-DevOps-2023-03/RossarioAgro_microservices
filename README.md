@@ -1,5 +1,43 @@
 # OTUS HW microservices
 
+## ДЗ по модулю "Введение в мониторинг. Модели и принципы работы систем мониторинга"
+
+* С помощью ```yc cli``` создал инстанс в облаке (команды обернул в скрипты)
+* С помощью ```docker-machine``` инициализировал на инстансе докер хост систему (команды обернул в скрипты)
+* Собрал образы микросервисов, ***Prometheus***
+* Развернул на инстансе ***Prometheus*** и ***Node exporter***
+* Запушил образы микросервисов и ***Prometheus*** в [DockerHub](https://hub.docker.com/repository/docker/rossarioagro/prometheus/general)
+* Написал Makefile для автоматизации действий (полная сборка проекта + отдельно push в [DockerHub](https://hub.docker.com/repository/docker/rossarioagro/prometheus/general))
+* Добавил в ***Prometheus*** мониторинг ***MongoDB*** с использованием экспортера (версия образа последняя стабильная)
+* Добавил в ***Prometheus*** мониторинг сервисов `comment`, `post`, `ui` с помощью ***blackbox exporter*** 
+Для сборки:
+
+* перейти в каталог **monitoring**, выполнить
+
+    ``` bash
+    make
+    ```
+
+  > [!NOTE]\
+  > не забываем переключаться на удаленный докер демон в Yandex Cloud:\
+    ```eval $(docker-machine env docker-host)```
+
+Для отправки образов в [DockerHub](https://hub.docker.com/repository/docker/rossarioagro/prometheus/general):
+
+* перейти в каталог **monitoring**, выполнить
+
+    ``` bash
+    make push
+    ```
+
+Для проверки:
+
+* мониторинг - открыть в браузере <http://IP_адрес_созданной_VM:9090>
+* приложение - открыть в браузере <http://IP_адрес_созданной_VM:9292>
+
+---
+# OTUS HW microservices
+
 
 ## ДЗ по модулю "Сетевое взаимодействие Docker контейнеров. Docker Compose. Тестирование образов"
 

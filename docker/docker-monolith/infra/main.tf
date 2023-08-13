@@ -5,9 +5,9 @@ provider "yandex" {
   zone                     = var.zone
 }
 
-resource "yandex_compute_instance" "reddit_docker" {
+resource "yandex_compute_instance" "prometheus_docker" {
   count = var.inst_count
-  name  = "reddit-app-${count.index + 1}"
+  name  = "prometheus-docker-${count.index + 1}"
   zone  = var.zone
 
   resources {

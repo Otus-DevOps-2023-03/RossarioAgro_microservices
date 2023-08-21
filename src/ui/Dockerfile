@@ -1,6 +1,6 @@
 FROM ruby:2.5.5-alpine3.10
 
-RUN apk --no-cache --update add build-base
+RUN apk --no-cache --update add build-base  gcc musl-dev
 
 ENV APP_HOME /app
 RUN mkdir $APP_HOME

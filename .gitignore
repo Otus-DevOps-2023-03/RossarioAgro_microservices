@@ -23,3 +23,9 @@ vault.key
 .molecule
 .cache
 .pytest_cache
+
+# Logging-1
+/logspout
+release
+build
+vendor/

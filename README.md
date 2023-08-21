@@ -1,5 +1,8 @@
 # OTUS HW microservices
 
+## ДЗ по модулю "Логирование и распределенная трассировка"
+
+---
 ## ДЗ по модулю "Введение в мониторинг. Модели и принципы работы систем мониторинга"
 
 * С помощью ```yc cli``` создал инстанс в облаке (команды обернул в скрипты)
@@ -9,7 +12,7 @@
 * Запушил образы микросервисов и ***Prometheus*** в [DockerHub](https://hub.docker.com/repository/docker/rossarioagro/prometheus/general)
 * Написал Makefile для автоматизации действий (полная сборка проекта + отдельно push в [DockerHub](https://hub.docker.com/repository/docker/rossarioagro/prometheus/general))
 * Добавил в ***Prometheus*** мониторинг ***MongoDB*** с использованием экспортера (версия образа последняя стабильная)
-* Добавил в ***Prometheus*** мониторинг сервисов `comment`, `post`, `ui` с помощью ***blackbox exporter*** 
+* Добавил в ***Prometheus*** мониторинг сервисов `comment`, `post`, `ui` с помощью ***blackbox exporter***
 Для сборки:
 
 * перейти в каталог **monitoring**, выполнить

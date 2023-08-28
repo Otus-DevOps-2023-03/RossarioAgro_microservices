@@ -1,3 +1,4 @@
+.github
 variables.json
 key.json
 svc_acct_key.json
@@ -25,7 +26,3 @@ vault.key
 .pytest_cache
 
 # Logging-1
-/logspout
-release
-build
-vendor/

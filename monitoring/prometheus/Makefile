@@ -1,6 +1,6 @@
 NAME           = MONITORING-HW
-USER_NAME      = cmero
-VM_NAME        = docker-host
+USER_NAME      = rossarioagro
+VM_NAME        = logging
 VM_SSH_USER    = yc-user
 VM_IP_ADDRESS  = ${shell yc compute instance show --name ${VM_NAME} | grep -E ' +address' | tail -n 1 | awk '{print $$2}'}
 SSH_P_KEY_PATH = ${shell find ~/.ssh/ -name id_ed25519.pub}
@@ -16,6 +16,7 @@ infra_create:
 		--zone ru-central1-a \
 		--network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
 		--create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1804-lts,size=15 \
+		--memory=4 \
 		--ssh-key ${SSH_P_KEY_PATH}
 
 env_init:

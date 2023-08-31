@@ -1,3 +1,4 @@
+.github
 variables.json
 key.json
 svc_acct_key.json
@@ -23,3 +24,5 @@ vault.key
 .molecule
 .cache
 .pytest_cache
+
+# Logging-1

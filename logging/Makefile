@@ -40,6 +40,7 @@ build:
 
 run:
 	@printf "Запуск сервисов ${NAME}...\n"
+	@${MACHINE_CHECKOUT} && docker-compose -f ../docker/docker-compose-logging.yml up -d
 	@${MACHINE_CHECKOUT} && docker-compose -f ../docker/docker-compose.yml up -d
 
 push:

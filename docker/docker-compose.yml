@@ -24,6 +24,11 @@ services:
       back_net:
         aliases:
           - "post"
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.post
   comment:
     image: ${USERNAME_HUB}/comment:${COMMENT_TAG}
     networks:
